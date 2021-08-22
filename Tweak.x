@@ -1,22 +1,15 @@
 #import <UIKit/UIKit.h>
 
 static float enlargementFactor = 1.368200836820084;
-static BOOL sizeSet = NO;
-static float size;
 static Class nowPlayingContentViewClass;
 
 %hook ArtworkComponentImageView
 - (void)setFrame:(CGRect)arg1 {
-	if ([[self superview] isKindOfClass:nowPlayingContentViewClass] && arg1.origin.x != 0) {
-		if (!sizeSet) {
-			size = arg1.size.width * enlargementFactor;
-			sizeSet = YES;
-		}
-		
+	if ([[self superview] isKindOfClass:nowPlayingContentViewClass] && arg1.origin.x != 0) {		
 		arg1.origin.x = 0;
 		arg1.origin.y = 0;
-		arg1.size.width = size;
-		arg1.size.height = size;
+		arg1.size.width *= enlargementFactor;
+		arg1.size.height *= enlargementFactor;
 	}
 
 	%orig(arg1);
