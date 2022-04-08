@@ -1,6 +1,6 @@
 Package: xyz.henryli17.dontshrinkmyalbumart
 Name: DontShrinkMyAlbumArt
-Version: 0.0.2
+Version: 0.0.3
 Architecture: iphoneos-arm
 Description: Stop the music app from shrinking the album art in the now playing view when paused. Requires iOS 14.
 Maintainer: Henry Li

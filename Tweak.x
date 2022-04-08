@@ -5,7 +5,7 @@ static Class nowPlayingContentViewClass;
 
 %hook ArtworkComponentImageView
 - (void)setFrame:(CGRect)arg1 {
-	if ([[self superview] isKindOfClass:nowPlayingContentViewClass] && arg1.origin.x != 0) {		
+	if ([[self superview] isKindOfClass:nowPlayingContentViewClass] && arg1.origin.x != 0 && arg1.origin.y != 0) {		
 		arg1.origin.x = 0;
 		arg1.origin.y = 0;
 		arg1.size.width *= enlargementFactor;
